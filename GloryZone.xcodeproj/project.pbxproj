@@ -48,6 +48,13 @@
 		9999E9412C5B8A3B002C0819 /* AddParticipantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9402C5B8A3B002C0819 /* AddParticipantView.swift */; };
 		9999E9432C5B8A4C002C0819 /* AddParticipantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9422C5B8A4C002C0819 /* AddParticipantViewModel.swift */; };
 		9999E9452C5BA89C002C0819 /* DeleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9442C5BA89C002C0819 /* DeleteButton.swift */; };
+		9999E9472C5BB1CC002C0819 /* ParticipantRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9462C5BB1CC002C0819 /* ParticipantRowView.swift */; };
+		9999E9492C5BCEEE002C0819 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9482C5BCEEE002C0819 /* Activity.swift */; };
+		9999E94C2C5BCFAF002C0819 /* AddActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E94B2C5BCFAF002C0819 /* AddActivityView.swift */; };
+		9999E94E2C5BCFEC002C0819 /* AddActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E94D2C5BCFEC002C0819 /* AddActivityViewModel.swift */; };
+		9999E9512C5CD749002C0819 /* AddStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9502C5CD749002C0819 /* AddStatView.swift */; };
+		9999E9532C5CD77F002C0819 /* AddStatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9522C5CD77F002C0819 /* AddStatViewModel.swift */; };
+		9999E9552C5CD9F5002C0819 /* Stat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9542C5CD9F5002C0819 /* Stat.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +100,13 @@
 		9999E9402C5B8A3B002C0819 /* AddParticipantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddParticipantView.swift; sourceTree = "<group>"; };
 		9999E9422C5B8A4C002C0819 /* AddParticipantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddParticipantViewModel.swift; sourceTree = "<group>"; };
 		9999E9442C5BA89C002C0819 /* DeleteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteButton.swift; sourceTree = "<group>"; };
+		9999E9462C5BB1CC002C0819 /* ParticipantRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantRowView.swift; sourceTree = "<group>"; };
+		9999E9482C5BCEEE002C0819 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		9999E94B2C5BCFAF002C0819 /* AddActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActivityView.swift; sourceTree = "<group>"; };
+		9999E94D2C5BCFEC002C0819 /* AddActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActivityViewModel.swift; sourceTree = "<group>"; };
+		9999E9502C5CD749002C0819 /* AddStatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStatView.swift; sourceTree = "<group>"; };
+		9999E9522C5CD77F002C0819 /* AddStatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStatViewModel.swift; sourceTree = "<group>"; };
+		9999E9542C5CD9F5002C0819 /* Stat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stat.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +177,8 @@
 			children = (
 				9999E92A2C5ADD51002C0819 /* Team.swift */,
 				9999E92E2C5AE290002C0819 /* Participant.swift */,
+				9999E9482C5BCEEE002C0819 /* Activity.swift */,
+				9999E9542C5CD9F5002C0819 /* Stat.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -224,6 +240,7 @@
 				9999E9362C5B7B9F002C0819 /* AddTeamView */,
 				9999E93F2C5B8A25002C0819 /* AddParticipant */,
 				9999E9442C5BA89C002C0819 /* DeleteButton.swift */,
+				9999E9462C5BB1CC002C0819 /* ParticipantRowView.swift */,
 			);
 			path = Team;
 			sourceTree = "<group>";
@@ -252,6 +269,7 @@
 			children = (
 				9999E91E2C5AD502002C0819 /* StatView.swift */,
 				9999E9262C5ADBCC002C0819 /* StatViewModel.swift */,
+				9999E94F2C5CD721002C0819 /* AddStatView */,
 			);
 			path = Stat;
 			sourceTree = "<group>";
@@ -259,8 +277,9 @@
 		9999E8F62C5A3DB1002C0819 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
-				9999E91C2C5AD4F4002C0819 /* CalendarView.swift */,
 				9999E9282C5ADBED002C0819 /* CalendarViewModel.swift */,
+				9999E91C2C5AD4F4002C0819 /* CalendarView.swift */,
+				9999E94A2C5BCF9C002C0819 /* AddActivity */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -312,6 +331,24 @@
 				9999E9422C5B8A4C002C0819 /* AddParticipantViewModel.swift */,
 			);
 			path = AddParticipant;
+			sourceTree = "<group>";
+		};
+		9999E94A2C5BCF9C002C0819 /* AddActivity */ = {
+			isa = PBXGroup;
+			children = (
+				9999E94B2C5BCFAF002C0819 /* AddActivityView.swift */,
+				9999E94D2C5BCFEC002C0819 /* AddActivityViewModel.swift */,
+			);
+			path = AddActivity;
+			sourceTree = "<group>";
+		};
+		9999E94F2C5CD721002C0819 /* AddStatView */ = {
+			isa = PBXGroup;
+			children = (
+				9999E9502C5CD749002C0819 /* AddStatView.swift */,
+				9999E9522C5CD77F002C0819 /* AddStatViewModel.swift */,
+			);
+			path = AddStatView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -384,12 +421,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9999E9512C5CD749002C0819 /* AddStatView.swift in Sources */,
 				9999E9112C5A5E07002C0819 /* UIFontExtension.swift in Sources */,
 				9999E8FC2C5A4296002C0819 /* DataManager.swift in Sources */,
 				9999E8FA2C5A420E002C0819 /* ViewModelFactory.swift in Sources */,
 				9999E9132C5A61BE002C0819 /* ImageTitles.swift in Sources */,
 				9999E8FE2C5A42A5002C0819 /* LocalStorage.swift in Sources */,
+				9999E9472C5BB1CC002C0819 /* ParticipantRowView.swift in Sources */,
 				9999E93C2C5B7F11002C0819 /* ImageView.swift in Sources */,
+				9999E9492C5BCEEE002C0819 /* Activity.swift in Sources */,
 				9999E8DC2C5A39CB002C0819 /* ProScoreApp.swift in Sources */,
 				9999E9152C5A7578002C0819 /* NextButton.swift in Sources */,
 				9999E9002C5A4331002C0819 /* LoadingVIewModel.swift in Sources */,
@@ -397,6 +437,8 @@
 				9999E9232C5ADB4C002C0819 /* TeamViewModel.swift in Sources */,
 				9999E90D2C5A5DC4002C0819 /* FontCustomModifier.swift in Sources */,
 				9999E9042C5A44DF002C0819 /* OnboardingVIewReviewer.swift in Sources */,
+				9999E94E2C5BCFEC002C0819 /* AddActivityViewModel.swift in Sources */,
+				9999E94C2C5BCFAF002C0819 /* AddActivityView.swift in Sources */,
 				9999E91D2C5AD4F4002C0819 /* CalendarView.swift in Sources */,
 				9999E9192C5AD432002C0819 /* ItemMainTabView.swift in Sources */,
 				9999E9312C5B7816002C0819 /* AddTeamView.swift in Sources */,
@@ -404,9 +446,11 @@
 				9999E9022C5A449E002C0819 /* LoadingViewReviewer.swift in Sources */,
 				9999E9172C5A76CA002C0819 /* EnvironmentValues.swift in Sources */,
 				9999E91B2C5AD4E6002C0819 /* TeamView.swift in Sources */,
+				9999E9532C5CD77F002C0819 /* AddStatViewModel.swift in Sources */,
 				9999E9432C5B8A4C002C0819 /* AddParticipantViewModel.swift in Sources */,
 				9999E9292C5ADBED002C0819 /* CalendarViewModel.swift in Sources */,
 				9999E93E2C5B7F7C002C0819 /* ImagePicker.swift in Sources */,
+				9999E9552C5CD9F5002C0819 /* Stat.swift in Sources */,
 				9999E9332C5B78B7002C0819 /* GrabberView.swift in Sources */,
 				9999E91F2C5AD502002C0819 /* StatView.swift in Sources */,
 				9999E92B2C5ADD51002C0819 /* Team.swift in Sources */,

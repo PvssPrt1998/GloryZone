@@ -11,10 +11,8 @@ struct DeleteButton: View {
             Image(systemName: "trash.fill")
                 .fontCustom(size: 17, weight: .regular, color: .white)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                //.background(Color.deleteButton)
         }
         .buttonStyle(DeleteButtonStyle())
-        //.clipShape(.rect(cornerRadius: 8))
     }
 }
 
@@ -28,7 +26,12 @@ struct DeleteButtonStyle: ButtonStyle {
             .background(
                 configuration.isPressed ? Color.deleteButton.opacity(0.8) : Color.deleteButton
             )
-            .frame(width: configuration.isPressed ? 60 : 74, height: configuration.isPressed ? 48 : 60)
             .clipShape(.rect(cornerRadius: 8))
+            .padding(EdgeInsets(top: configuration.isPressed ? 6 : 0,
+                                leading: configuration.isPressed ? 7 : 0,
+                                bottom: configuration.isPressed ? 6 : 0,
+                                trailing: configuration.isPressed ? 7 : 0))
+            .frame(width: 74, height: 60)
+            //.clipShape(.rect(cornerRadius: 8))
     }
 }

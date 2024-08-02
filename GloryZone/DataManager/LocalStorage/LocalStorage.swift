@@ -11,4 +11,7 @@ final class LocalStorage {
         
     }
     
+    func save(_ participant: Activity) {
+        
+    }
 }

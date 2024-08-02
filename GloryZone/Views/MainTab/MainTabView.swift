@@ -31,12 +31,12 @@ struct MainTabView: View {
                     ItemMainView(imageTitle: "person.2.fill", text: "Team")
                 }
                 .tag(1)
-            StatView(viewModel: viewModel.statViewModel)
+            CalendarView(viewModel: viewModel.calendarViewMode)
                 .tabItem {
                     ItemMainView(imageTitle: "calendar", text: "Calendar")
                 }
                 .tag(2)
-            CalendarView(viewModel: viewModel.calendarViewMode)
+            StatView(viewModel: viewModel.statViewModel)
                 .tabItem {
                     ItemMainView(imageTitle: "chart.line.uptrend.xyaxis", text: "Statistics")
                 }

@@ -61,32 +61,8 @@ struct TeamView: View {
                             ScrollView(.vertical, showsIndicators: false) {
                                 LazyVStack(spacing: 0) {
                                     ForEach(0..<viewModel.participantsCount, id: \.self) { index in
-                                        ScrollView(.horizontal, showsIndicators: false) {
-                                            HStack(spacing: 0) {
-                                                VStack(spacing: 0) {
-                                                    HStack {
-                                                        VStack(spacing: 4) {
-                                                            TextCustom(text: viewModel.getParticipantBy(index: index).name, size: 17, weight: .regular, color: .white)
-                                                            TextCustom(text: viewModel.getParticipantBy(index: index).nickname, size: 15, weight: .regular, color: .specialSubtitle)
-                                                        }
-                                                        Spacer()
-                                                        TextCustom(text: gameTypeString(index: index), size: 17, weight: .regular, color: .specialSubtitle)
-                                                    }
-                                                    .padding(EdgeInsets(top: 9, leading: 16, bottom: 6, trailing: 16))
-                                                    if index != viewModel.participantsCount - 1 {
-                                                        Rectangle()
-                                                            .fill(Color.specialPrimary)
-                                                            .frame(height: 3)
-                                                    }
-                                                }
-                                                .padding(.horizontal, horizontalPadding())
-                                                .frame(width: proxy.size.width)
-                                                DeleteButton {
-                                                    print("lel")
-                                                }
-                                            }
-                                            
-                                        }
+                                        ParticipantRowView(viewModel: ParticipantRowViewModel(dataManager: viewModel.dataManager), width: proxy.size.width, index: index)
+                                            .ignoresSafeArea()
                                     }
                                 }
                                 .padding(.bottom, 72)
@@ -101,8 +77,6 @@ struct TeamView: View {
                 }
             }
             .frame(maxHeight: .infinity, alignment: .top)
-            
-            //Participants
             Rectangle()
                 .fill(Color.white.opacity(0.15))
                 .frame(height: 0.4)

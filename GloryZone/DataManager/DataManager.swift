@@ -3,7 +3,10 @@ import Foundation
 final class DataManager {
     
     var team: Team?
-    var participants: Array<Participant> = []
+    @Published var participants: Array<Participant> = []
+    @Published var activities: Array<Activity> = []
+    @Published var dotaStat: Stat = Stat(quantityOfWins: 0, quantityOfLosses: 0, numberOfFirstPlacesTaken: 0, numberOfPlayersInTeam: 0)
+    @Published var lolStat: Stat = Stat(quantityOfWins: 0, quantityOfLosses: 0, numberOfFirstPlacesTaken: 0, numberOfPlayersInTeam: 0)
     
     let localStorage = LocalStorage()
     
@@ -22,6 +25,11 @@ final class DataManager {
         participants.append(participant)
     }
     
+    func addActivity(_ activity: Activity) {
+        localStorage.save(activity)
+        activities.append(activity)
+    }
+    
     func loadLocalData() {
         DispatchQueue.global(qos: .utility).async { [weak self] in
             guard let self = self else { return }
@@ -30,6 +38,14 @@ final class DataManager {
                 self.localLoaded()
             }
         }
+    }
+    
+    func setDotaStat(_ stat: Stat) {
+        self.dotaStat = stat
+    }
+    
+    func setLolStat(_ stat: Stat) {
+        self.lolStat = stat
     }
     
     private func localLoaded() {

@@ -8,6 +8,8 @@ final class TeamViewModel: ObservableObject {
     @Published var showAddTeamSheet: Bool = false
     @Published var showAddParticipantSheet: Bool = false
     
+    private var participantsCancellable: AnyCancellable?
+    
     var team: Team? {
         dataManager.team
     }
@@ -22,6 +24,10 @@ final class TeamViewModel: ObservableObject {
     
     init(dataManager: DataManager) {
         self.dataManager = dataManager
+        
+        participantsCancellable = dataManager.$participants.sink { [weak self] _ in
+            self?.objectWillChange.send()
+        }
     }
     
     func getParticipantBy(index: Int) -> Participant {
