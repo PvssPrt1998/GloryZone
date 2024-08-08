@@ -26,12 +26,6 @@ struct AddActivityView: View {
                         TextCustom(text: "Beginning", size: 15, weight: .regular, color: .white)
                         DatePicker("", selection: $viewModel.time, displayedComponents: .hourAndMinute)
                             .labelsHidden()
-                        Picker("", selection: $viewModel.segmentedControl) {
-                            Text("PM").tag(0)
-                            Text("AM").tag(1)
-                        }
-                        .pickerStyle(.segmented)
-                        .frame(width: 87)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                     AddButton(title: "Add", disabled: buttonDisabled()) {
@@ -56,7 +50,7 @@ struct AddActivityView: View {
 
 struct AddActivity_Preview: PreviewProvider {
     static var previews: some View {
-        AddActivityView(viewModel: AddActivityViewModel(dataManager: DataManager()),action: {})
+        AddActivityView(viewModel: AddActivityViewModel(dataManager: DataManager(), date: Date()),action: {})
             .background(Color.white)
     }
 }

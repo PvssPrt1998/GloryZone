@@ -41,7 +41,7 @@ struct MainTabView: View {
                     ItemMainView(imageTitle: "chart.line.uptrend.xyaxis", text: "Statistics")
                 }
                 .tag(3)
-            SettingsView()
+            SettingsView(dataManager: viewModel.dataManager)
                 .tabItem {
                     ItemMainView(imageTitle: "gearshape.fill", text: "Settings")
                 }

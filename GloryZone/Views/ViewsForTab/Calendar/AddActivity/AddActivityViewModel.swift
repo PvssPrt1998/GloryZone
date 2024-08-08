@@ -7,10 +7,10 @@ final class AddActivityViewModel: ObservableObject {
     @Published var text: String = ""
     @Published var date: Date = Date()
     @Published var time: Date = Date()
-    @Published var segmentedControl: Int = 0
     
-    init(dataManager: DataManager) {
+    init(dataManager: DataManager, date: Date) {
         self.dataManager = dataManager
+        self.date = date
     }
     
     func addActivity() {

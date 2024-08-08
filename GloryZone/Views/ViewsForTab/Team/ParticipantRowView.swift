@@ -1,10 +1,3 @@
-//
-//  ParticipantRowView.swift
-//  GloryZone
-//
-//  Created by Николай Щербаков on 01.08.2024.
-//
-
 import SwiftUI
 
 struct ParticipantRowView: View {
@@ -22,7 +15,7 @@ struct ParticipantRowView: View {
         HStack(spacing: 0) {
             VStack(spacing: 0) {
                 HStack {
-                    VStack(spacing: 4) {
+                    VStack(alignment: .leading, spacing: 4) {
                         TextCustom(text: viewModel.getParticipantBy(index: index).name, size: 17, weight: .regular, color: .white)
                         TextCustom(text: viewModel.getParticipantBy(index: index).nickname, size: 15, weight: .regular, color: .specialSubtitle)
                     }
@@ -42,14 +35,14 @@ struct ParticipantRowView: View {
             .padding(.horizontal, horizontalPadding())
             .gesture(
                 DragGesture()
-                    .onChanged { value in
-                        if value.translation.width < 20 && !viewModel.isDeleteShown {
+                    .onEnded({ value in
+                        if abs(value.translation.width) > 20 && (value.translation.width < 0) && !viewModel.isDeleteShown {
                             showDelete()
                         }
-                        if value.translation.width > 20 && viewModel.isDeleteShown {
+                        if abs(value.translation.width) > 20 && value.translation.width > 0 && viewModel.isDeleteShown {
                             hideDelete()
                         }
-                    }
+                    })
             )
             DeleteButton {
                 showAlert = true
@@ -81,14 +74,18 @@ struct ParticipantRowView: View {
         withAnimation(.linear(duration: 0.1)) {
             offset = -74
         }
-        viewModel.isDeleteShown = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            viewModel.isDeleteShown = true
+        }
     }
     
     private func hideDelete() {
         withAnimation(.linear(duration: 0.1)) {
             offset = 37
         }
-        viewModel.isDeleteShown = false
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            viewModel.isDeleteShown = false
+        }
     }
     
     private func gameTypeString(index: Int) -> String {
@@ -114,6 +111,8 @@ final class ParticipantRowViewModel: ObservableObject {
     
     let dataManager: DataManager
     
+    var width: CGFloat = 20
+    
     var participantsCount: Int {
         dataManager.participants.count
     }
@@ -125,7 +124,7 @@ final class ParticipantRowViewModel: ObservableObject {
     }
     
     func deleteButtonAction(_ index: Int) {
-        dataManager.participants.remove(at: index)
+        dataManager.removeParticipant(index: index)
     }
     
     func getParticipantBy(index: Int) -> Participant {

@@ -70,7 +70,7 @@ struct TeamView: View {
                             AddButton(title: "Add a participants", disabled: false) {
                                 viewModel.showAddParticipantSheet = true
                             }
-                            .padding(.bottom, 16)
+                            .padding(EdgeInsets(top: 0, leading: 52, bottom: 16, trailing: 52))
                             .frame(maxHeight: .infinity, alignment: .bottom)
                         }
                     }

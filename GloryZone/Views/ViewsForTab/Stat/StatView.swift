@@ -28,7 +28,7 @@ struct StatView: View {
                             TextCustom(text: "\(viewModel.stat.quantityOfWins)", size: 34, weight: .bold, color: .specialPrimary)
                             TextCustom(text: "Quantity of wins", size: 13, weight: .regular, color: .white)
                         }
-                        .padding(EdgeInsets(top: 29, leading: 10, bottom: 29, trailing: 10))
+                        .padding(EdgeInsets(top: 15, leading: 10, bottom: 15, trailing: 10))
                         .frame(maxWidth: .infinity)
                         .background(Color.bgSecond)
                         .clipShape(.rect(cornerRadius: 10))
@@ -36,7 +36,7 @@ struct StatView: View {
                             TextCustom(text: "\(viewModel.stat.quantityOfLosses)", size: 34, weight: .bold, color: .specialPrimary)
                             TextCustom(text: "Quantity of losses", size: 13, weight: .regular, color: .white)
                         }
-                        .padding(EdgeInsets(top: 29, leading: 10, bottom: 29, trailing: 10))
+                        .padding(EdgeInsets(top: 15, leading: 10, bottom: 15, trailing: 10))
                         .frame(maxWidth: .infinity)
                         .background(Color.bgSecond)
                         .clipShape(.rect(cornerRadius: 10))
@@ -45,7 +45,7 @@ struct StatView: View {
                         TextCustom(text: "\(viewModel.stat.numberOfFirstPlacesTaken)", size: 34, weight: .bold, color: .specialPrimary)
                         TextCustom(text: "Quantity of first places taken", size: 13, weight: .regular, color: .white)
                     }
-                    .padding(EdgeInsets(top: 29, leading: 10, bottom: 29, trailing: 10))
+                    .padding(EdgeInsets(top: 15, leading: 10, bottom: 15, trailing: 10)) //29
                     .frame(maxWidth: .infinity)
                     .background(Color.bgSecond)
                     .clipShape(.rect(cornerRadius: 10))
@@ -53,7 +53,7 @@ struct StatView: View {
                         TextCustom(text: "\(viewModel.stat.numberOfPlayersInTeam)", size: 34, weight: .bold, color: .specialPrimary)
                         TextCustom(text: "Quantity of players in team", size: 13, weight: .regular, color: .white)
                     }
-                    .padding(EdgeInsets(top: 29, leading: 10, bottom: 29, trailing: 10))
+                    .padding(EdgeInsets(top: 15, leading: 10, bottom: 15, trailing: 10))
                     .frame(maxWidth: .infinity)
                     .background(Color.bgSecond)
                     .clipShape(.rect(cornerRadius: 10))
@@ -68,6 +68,10 @@ struct StatView: View {
                 .padding(.horizontal, 15)
             }
             .frame(maxHeight: .infinity, alignment: .top)
+            Rectangle()
+                .fill(Color.white.opacity(0.15))
+                .frame(height: 0.4)
+                .frame(maxHeight: .infinity, alignment: .bottom)
         }
         .sheet(isPresented: $viewModel.showDotaAddStatSheet) {
             AddStatView(viewModel: viewModel.makeAddStatViewModel()) {

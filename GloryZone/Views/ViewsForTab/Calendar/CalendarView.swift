@@ -42,10 +42,11 @@ struct CalendarView: View {
                                 ForEach(viewModel.activities, id: \.self) { activity in
                                     VStack(spacing: 10) {
                                         TextCustom(text: activity.title, size: 17, weight: .semibold, color: .white)
-                                        VStack(spacing: 0) {
-                                            TextCustom(text: activity.title, size: 12, weight: .regular, color: .white.opacity(0.35))
-                                            TextCustom(text: activity.title, size: 12, weight: .regular, color: .white.opacity(0.35))
-                                        }
+                                            .frame(maxWidth: .infinity, alignment: .leading)
+                                        VStack(alignment: .leading, spacing: 0) {
+                                            TextCustom(text: dateWithoutTime(date: activity.date), size: 12, weight: .regular, color: .white.opacity(0.35))
+                                            TextCustom(text: dateTime(date: activity.date), size: 12, weight: .regular, color: .white.opacity(0.35))
+                                        }.frame(maxWidth: .infinity, alignment: .leading)
                                     }
                                     .padding(EdgeInsets(top: 15, leading: 24, bottom: 15, trailing: 24))
                                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -72,7 +73,7 @@ struct CalendarView: View {
     }
     
     private func dateTime(date: String) -> String {
-        date.components(separatedBy: " ")[1]
+        "Beginning " + date.components(separatedBy: " ")[1]
     }
     
     private func dateWithoutTime(date: String) -> String {

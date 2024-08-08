@@ -1,13 +1,16 @@
-//
-//  SettingsView.swift
-//  GloryZone
-//
-//  Created by Николай Щербаков on 01.08.2024.
-//
-
 import SwiftUI
 
 struct SettingsView: View {
+    
+    let dataManager: DataManager
+    
+    @State var showContacts = false
+    @State var showTermsOfUse = false
+    @State var showPrivacy = false
+    @State var showLicense = false
+    
+    @State var showResetAlert = false
+    
     var body: some View {
         ZStack {
             Color.bgMain.ignoresSafeArea()
@@ -18,7 +21,7 @@ struct SettingsView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                 VStack(spacing: 20) {
                     Button {
-                        //action contact
+                        showContacts = true
                     } label: {
                         HStack(spacing: 12) {
                             Image(systemName: "bubble.fill")
@@ -31,7 +34,7 @@ struct SettingsView: View {
                     .background(Color.settingsElementBackground)
                     .clipShape(.rect(cornerRadius: 10))
                     Button {
-                        //action contact
+                        showPrivacy = true
                     } label: {
                         HStack(spacing: 12) {
                             Image(systemName: "shield.fill")
@@ -44,7 +47,7 @@ struct SettingsView: View {
                     .background(Color.settingsElementBackground)
                     .clipShape(.rect(cornerRadius: 10))
                     Button {
-                        //action contact
+                        showTermsOfUse = true
                     } label: {
                         HStack(spacing: 12) {
                             Image(systemName: "menucard.fill")
@@ -57,7 +60,7 @@ struct SettingsView: View {
                     .background(Color.settingsElementBackground)
                     .clipShape(.rect(cornerRadius: 10))
                     Button {
-                        //action contact
+                        showLicense = true
                     } label: {
                         HStack(spacing: 12) {
                             Image(systemName: "wallet.pass.fill")
@@ -74,15 +77,47 @@ struct SettingsView: View {
                 
                 Spacer()
                 AddButton(title: "Reset data", disabled: false) {
-                    
+                    showResetAlert = true
                 }
                 .padding(EdgeInsets(top: 0, leading: 52, bottom: 16, trailing: 52))
             }
             .frame(maxHeight: .infinity, alignment: .top)
+            if showContacts {
+                SettingsWebView(action: {
+                    showTermsOfUse = false
+                }, url: "https://www.termsfeed.com/live/7fefe868-1b6a-4aa0-aa24-f3f3cecf19bc")
+            }
+            if showTermsOfUse {
+                SettingsWebView(action: {
+                    showTermsOfUse = false
+                }, url: "https://www.termsfeed.com/live/800912d3-eb11-4b2f-9caa-bff5ad5eecfa")
+            }
+            if showPrivacy {
+                SettingsWebView(action: {
+                    showPrivacy = false
+                }, url: "https://www.termsfeed.com/live/7fefe868-1b6a-4aa0-aa24-f3f3cecf19bc")
+            }
+            if showLicense {
+                SettingsWebView(action: {
+                    showLicense = false
+                }, url: "https://www.termsfeed.com/live/800912d3-eb11-4b2f-9caa-bff5ad5eecfa")
+            }
+            Rectangle()
+                .fill(Color.white.opacity(0.15))
+                .frame(height: 0.4)
+                .frame(maxHeight: .infinity, alignment: .bottom)
+        }
+        .alert(isPresented: $showResetAlert) {
+            Alert(title: Text("Delete"), message: Text("Are you sure you want to delete?"),
+                  primaryButton: .default(Text("Close"), action: {
+                showResetAlert = false
+            }), secondaryButton: .default(Text("Delete"), action: {
+                dataManager.removeAll()
+            }))
         }
     }
 }
 
 #Preview {
-    SettingsView()
+    SettingsView(dataManager: DataManager())
 }

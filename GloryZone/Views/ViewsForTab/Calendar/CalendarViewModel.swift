@@ -2,7 +2,11 @@ import Foundation
 
 final class CalendarViewModel: ObservableObject {
     
-    @Published var date: Date = Date()
+    @Published var date: Date = Date() {
+        didSet {
+            showAddActivitySheet = true
+        }
+    }
     
     @Published var showAddActivitySheet: Bool = false
     
@@ -17,6 +21,6 @@ final class CalendarViewModel: ObservableObject {
     }
     
     func makeAddActivityViewModel() -> AddActivityViewModel {
-        AddActivityViewModel(dataManager: dataManager)
+        AddActivityViewModel(dataManager: dataManager, date: date)
     }
 }

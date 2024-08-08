@@ -18,10 +18,9 @@ final class AddStatViewModel: ObservableObject {
     func setStat() {
         guard let wins = Int(winsText), let losses = Int(lossesText), let firstPlaces = Int(firstPlacesText), let playersInTeam = Int(playersInTeamText) else { return }
         if isDotaType {
-            dataManager.setDotaStat(Stat(quantityOfWins: wins, quantityOfLosses: losses, numberOfFirstPlacesTaken: firstPlaces, numberOfPlayersInTeam: playersInTeam))
+            dataManager.setDotaStat(Stat(isDotaType: isDotaType, quantityOfWins: wins, quantityOfLosses: losses, numberOfFirstPlacesTaken: firstPlaces, numberOfPlayersInTeam: playersInTeam))
         } else {
-            print("lel")
-            dataManager.setLolStat(Stat(quantityOfWins: wins, quantityOfLosses: losses, numberOfFirstPlacesTaken: firstPlaces, numberOfPlayersInTeam: playersInTeam))
+            dataManager.setLolStat(Stat(isDotaType: isDotaType, quantityOfWins: wins, quantityOfLosses: losses, numberOfFirstPlacesTaken: firstPlaces, numberOfPlayersInTeam: playersInTeam))
         }
     }
 }

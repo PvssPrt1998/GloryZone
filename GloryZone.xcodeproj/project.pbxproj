@@ -55,6 +55,19 @@
 		9999E9512C5CD749002C0819 /* AddStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9502C5CD749002C0819 /* AddStatView.swift */; };
 		9999E9532C5CD77F002C0819 /* AddStatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9522C5CD77F002C0819 /* AddStatViewModel.swift */; };
 		9999E9552C5CD9F5002C0819 /* Stat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9542C5CD9F5002C0819 /* Stat.swift */; };
+		9999E95D2C623761002C0819 /* SettingsWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E95C2C623761002C0819 /* SettingsWebView.swift */; };
+		9999E95F2C623792002C0819 /* WebViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E95E2C623792002C0819 /* WebViewModel.swift */; };
+		9999E9612C6237B0002C0819 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9602C6237B0002C0819 /* WebView.swift */; };
+		9999E9AB2C64C4F5002C0819 /* GloryZone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9A92C64C4F5002C0819 /* GloryZone.xcdatamodeld */; };
+		9999E9AD2C64C519002C0819 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9AC2C64C519002C0819 /* CoreDataStack.swift */; };
+		9999E9D62C64D40B002C0819 /* TeamCoreData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9CE2C64D40B002C0819 /* TeamCoreData+CoreDataClass.swift */; };
+		9999E9D72C64D40B002C0819 /* TeamCoreData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9CF2C64D40B002C0819 /* TeamCoreData+CoreDataProperties.swift */; };
+		9999E9D82C64D40B002C0819 /* StatCoreData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9D02C64D40B002C0819 /* StatCoreData+CoreDataClass.swift */; };
+		9999E9D92C64D40B002C0819 /* StatCoreData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9D12C64D40B002C0819 /* StatCoreData+CoreDataProperties.swift */; };
+		9999E9DA2C64D40B002C0819 /* ActivityCoreData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9D22C64D40B002C0819 /* ActivityCoreData+CoreDataClass.swift */; };
+		9999E9DB2C64D40B002C0819 /* ActivityCoreData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9D32C64D40B002C0819 /* ActivityCoreData+CoreDataProperties.swift */; };
+		9999E9DC2C64D40B002C0819 /* ParticipantCoreData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9D42C64D40B002C0819 /* ParticipantCoreData+CoreDataClass.swift */; };
+		9999E9DD2C64D40B002C0819 /* ParticipantCoreData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9999E9D52C64D40B002C0819 /* ParticipantCoreData+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,6 +120,19 @@
 		9999E9502C5CD749002C0819 /* AddStatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStatView.swift; sourceTree = "<group>"; };
 		9999E9522C5CD77F002C0819 /* AddStatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStatViewModel.swift; sourceTree = "<group>"; };
 		9999E9542C5CD9F5002C0819 /* Stat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stat.swift; sourceTree = "<group>"; };
+		9999E95C2C623761002C0819 /* SettingsWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWebView.swift; sourceTree = "<group>"; };
+		9999E95E2C623792002C0819 /* WebViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewModel.swift; sourceTree = "<group>"; };
+		9999E9602C6237B0002C0819 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		9999E9AA2C64C4F5002C0819 /* GloryZone.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GloryZone.xcdatamodel; sourceTree = "<group>"; };
+		9999E9AC2C64C519002C0819 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		9999E9CE2C64D40B002C0819 /* TeamCoreData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TeamCoreData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		9999E9CF2C64D40B002C0819 /* TeamCoreData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TeamCoreData+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		9999E9D02C64D40B002C0819 /* StatCoreData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StatCoreData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		9999E9D12C64D40B002C0819 /* StatCoreData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StatCoreData+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		9999E9D22C64D40B002C0819 /* ActivityCoreData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActivityCoreData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		9999E9D32C64D40B002C0819 /* ActivityCoreData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActivityCoreData+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		9999E9D42C64D40B002C0819 /* ParticipantCoreData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ParticipantCoreData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		9999E9D52C64D40B002C0819 /* ParticipantCoreData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ParticipantCoreData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +214,7 @@
 			children = (
 				9999E8FB2C5A4296002C0819 /* DataManager.swift */,
 				9999E8F82C5A3E10002C0819 /* LocalStorage */,
+				9999E9A92C64C4F5002C0819 /* GloryZone.xcdatamodeld */,
 			);
 			path = DataManager;
 			sourceTree = "<group>";
@@ -249,6 +276,8 @@
 			isa = PBXGroup;
 			children = (
 				9999E9202C5AD50D002C0819 /* SettingsView.swift */,
+				9999E95C2C623761002C0819 /* SettingsWebView.swift */,
+				9999E95E2C623792002C0819 /* WebViewModel.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -294,6 +323,7 @@
 				9999E9392C5B7C26002C0819 /* AddButton.swift */,
 				9999E93B2C5B7F11002C0819 /* ImageView.swift */,
 				9999E93D2C5B7F7C002C0819 /* ImagePicker.swift */,
+				9999E9602C6237B0002C0819 /* WebView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -301,7 +331,9 @@
 		9999E8F82C5A3E10002C0819 /* LocalStorage */ = {
 			isa = PBXGroup;
 			children = (
+				9999E9DE2C64D413002C0819 /* Subclasses */,
 				9999E8FD2C5A42A5002C0819 /* LocalStorage.swift */,
+				9999E9AC2C64C519002C0819 /* CoreDataStack.swift */,
 			);
 			path = LocalStorage;
 			sourceTree = "<group>";
@@ -349,6 +381,21 @@
 				9999E9522C5CD77F002C0819 /* AddStatViewModel.swift */,
 			);
 			path = AddStatView;
+			sourceTree = "<group>";
+		};
+		9999E9DE2C64D413002C0819 /* Subclasses */ = {
+			isa = PBXGroup;
+			children = (
+				9999E9CE2C64D40B002C0819 /* TeamCoreData+CoreDataClass.swift */,
+				9999E9CF2C64D40B002C0819 /* TeamCoreData+CoreDataProperties.swift */,
+				9999E9D02C64D40B002C0819 /* StatCoreData+CoreDataClass.swift */,
+				9999E9D12C64D40B002C0819 /* StatCoreData+CoreDataProperties.swift */,
+				9999E9D22C64D40B002C0819 /* ActivityCoreData+CoreDataClass.swift */,
+				9999E9D32C64D40B002C0819 /* ActivityCoreData+CoreDataProperties.swift */,
+				9999E9D42C64D40B002C0819 /* ParticipantCoreData+CoreDataClass.swift */,
+				9999E9D52C64D40B002C0819 /* ParticipantCoreData+CoreDataProperties.swift */,
+			);
+			path = Subclasses;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -428,9 +475,12 @@
 				9999E9132C5A61BE002C0819 /* ImageTitles.swift in Sources */,
 				9999E8FE2C5A42A5002C0819 /* LocalStorage.swift in Sources */,
 				9999E9472C5BB1CC002C0819 /* ParticipantRowView.swift in Sources */,
+				9999E95F2C623792002C0819 /* WebViewModel.swift in Sources */,
 				9999E93C2C5B7F11002C0819 /* ImageView.swift in Sources */,
 				9999E9492C5BCEEE002C0819 /* Activity.swift in Sources */,
 				9999E8DC2C5A39CB002C0819 /* ProScoreApp.swift in Sources */,
+				9999E9AB2C64C4F5002C0819 /* GloryZone.xcdatamodeld in Sources */,
+				9999E9AD2C64C519002C0819 /* CoreDataStack.swift in Sources */,
 				9999E9152C5A7578002C0819 /* NextButton.swift in Sources */,
 				9999E9002C5A4331002C0819 /* LoadingVIewModel.swift in Sources */,
 				9999E9382C5B7BB2002C0819 /* AddTeamViewModel.swift in Sources */,
@@ -441,15 +491,25 @@
 				9999E94C2C5BCFAF002C0819 /* AddActivityView.swift in Sources */,
 				9999E91D2C5AD4F4002C0819 /* CalendarView.swift in Sources */,
 				9999E9192C5AD432002C0819 /* ItemMainTabView.swift in Sources */,
+				9999E9D62C64D40B002C0819 /* TeamCoreData+CoreDataClass.swift in Sources */,
+				9999E9D72C64D40B002C0819 /* TeamCoreData+CoreDataProperties.swift in Sources */,
+				9999E9D82C64D40B002C0819 /* StatCoreData+CoreDataClass.swift in Sources */,
+				9999E9D92C64D40B002C0819 /* StatCoreData+CoreDataProperties.swift in Sources */,
+				9999E9DA2C64D40B002C0819 /* ActivityCoreData+CoreDataClass.swift in Sources */,
+				9999E9DB2C64D40B002C0819 /* ActivityCoreData+CoreDataProperties.swift in Sources */,
+				9999E9DC2C64D40B002C0819 /* ParticipantCoreData+CoreDataClass.swift in Sources */,
+				9999E9DD2C64D40B002C0819 /* ParticipantCoreData+CoreDataProperties.swift in Sources */,
 				9999E9312C5B7816002C0819 /* AddTeamView.swift in Sources */,
 				9999E92D2C5ADE7F002C0819 /* EmptyElementView.swift in Sources */,
 				9999E9022C5A449E002C0819 /* LoadingViewReviewer.swift in Sources */,
 				9999E9172C5A76CA002C0819 /* EnvironmentValues.swift in Sources */,
 				9999E91B2C5AD4E6002C0819 /* TeamView.swift in Sources */,
 				9999E9532C5CD77F002C0819 /* AddStatViewModel.swift in Sources */,
+				9999E9612C6237B0002C0819 /* WebView.swift in Sources */,
 				9999E9432C5B8A4C002C0819 /* AddParticipantViewModel.swift in Sources */,
 				9999E9292C5ADBED002C0819 /* CalendarViewModel.swift in Sources */,
 				9999E93E2C5B7F7C002C0819 /* ImagePicker.swift in Sources */,
+				9999E95D2C623761002C0819 /* SettingsWebView.swift in Sources */,
 				9999E9552C5CD9F5002C0819 /* Stat.swift in Sources */,
 				9999E9332C5B78B7002C0819 /* GrabberView.swift in Sources */,
 				9999E91F2C5AD502002C0819 /* StatView.swift in Sources */,
@@ -680,6 +740,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9999E9A92C64C4F5002C0819 /* GloryZone.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9999E9AA2C64C4F5002C0819 /* GloryZone.xcdatamodel */,
+			);
+			currentVersion = 9999E9AA2C64C4F5002C0819 /* GloryZone.xcdatamodel */;
+			name = GloryZone.xcdatamodeld;
+			path = /Users/lucifer/Documents/SwiftProjects/ProScore/GloryZone/DataManager/GloryZone.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 9999E8D02C5A39CB002C0819 /* Project object */;
 }
