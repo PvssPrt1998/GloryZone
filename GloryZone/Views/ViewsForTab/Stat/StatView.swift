@@ -21,7 +21,7 @@ struct StatView: View {
                     Text("LoL").tag(1)
                 }
                 .pickerStyle(.segmented)
-                .padding(.horizontal, 41)
+                .padding(.horizontal, pickerHorizontalPadding())
                 VStack(spacing: 15) {
                     HStack(spacing: 15) {
                         VStack(spacing: 11) {
@@ -65,7 +65,7 @@ struct StatView: View {
                         }
                     }
                 }
-                .padding(.horizontal, 15)
+                .padding(.horizontal, horizontalPadding())
             }
             .frame(maxHeight: .infinity, alignment: .top)
             Rectangle()
@@ -83,6 +83,14 @@ struct StatView: View {
                 viewModel.showLoLAddStatSheet = false
             }
         }
+    }
+    
+    private func horizontalPadding() -> CGFloat {
+        UIDevice.current.userInterfaceIdiom == .pad ? 41 : 15
+    }
+    
+    private func pickerHorizontalPadding() -> CGFloat {
+        UIDevice.current.userInterfaceIdiom == .pad ? 58 : 41
     }
 }
 
