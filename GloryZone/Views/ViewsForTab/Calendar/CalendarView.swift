@@ -4,72 +4,86 @@ struct CalendarView: View {
     
     @ObservedObject var viewModel: CalendarViewModel
     
+    @State var isPortrait: Bool
+    
+    @Environment(\.safeAreaInsets) private var safeAreaInsets
+    
+    init(viewModel: CalendarViewModel) {
+        self.viewModel = viewModel
+        self.isPortrait = UIDevice.current.orientation.isPortrait
+    }
+    
     var body: some View {
         ZStack {
             Color.bgMain.ignoresSafeArea()
+            ScrollView {
                 VStack(spacing: 15) {
-                    VStack(spacing: 25) {
-                        TextCustom(text: "Calendar", size: 34, weight: .bold, color: .white)
-                            .padding(EdgeInsets(top: 3, leading: 16, bottom: 8, trailing: 16))
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                        DatePicker("", selection: $viewModel.date, displayedComponents: .date)
-                            .datePickerStyle(.graphical)
-                            .id(viewModel.date)
-                            .background(Color.calendarBackground)
-                            .clipShape(.rect(cornerRadius: 13))
-                            .padding(.horizontal, 15)
-                    }
-                    HStack {
-                        TextCustom(text: "Activities", size: 20, weight: .semibold)
-                        Spacer()
-                        Button {
-                            viewModel.showAddActivitySheet = true
-                        } label: {
-                            Image(systemName: "plus")
-                                .fontCustom(size: 22, weight: .medium, color: .specialPrimary)
-                                .frame(width: 24, height: 24)
+                        VStack(spacing: 25) {
+                            TextCustom(text: "Calendar", size: 34, weight: .bold, color: .white)
+                                .padding(EdgeInsets(top: 3, leading: 16, bottom: 8, trailing: 16))
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                            DatePicker("", selection: $viewModel.date, displayedComponents: .date)
+                                .datePickerStyle(.graphical)
+                                .id(viewModel.date)
+                                .background(Color.calendarBackground)
+                                .clipShape(.rect(cornerRadius: 13))
+                                .padding(.horizontal, 15)
                         }
-                    }
-                    .padding(.horizontal, 15)
-                    if viewModel.activities.isEmpty {
-                        TextCustom(text: "There are no scheduled\nholidays for this day", size: 16, weight: .regular, color: .emptyActivities)
-                            .multilineTextAlignment(.center)
-                            .padding(.bottom, 38)
-                            .frame(maxHeight: .infinity, alignment: .center)
-                    } else {
-                        ScrollView(.vertical, showsIndicators: false) {
-                            LazyVStack(spacing: 15) {
-                                ForEach(viewModel.activities, id: \.self) { activity in
-                                    VStack(spacing: 10) {
-                                        TextCustom(text: activity.title, size: 17, weight: .semibold, color: .white)
-                                            .frame(maxWidth: .infinity, alignment: .leading)
-                                        VStack(alignment: .leading, spacing: 0) {
-                                            TextCustom(text: dateWithoutTime(date: activity.date), size: 12, weight: .regular, color: .white.opacity(0.35))
-                                            TextCustom(text: dateTime(date: activity.date), size: 12, weight: .regular, color: .white.opacity(0.35))
-                                        }.frame(maxWidth: .infinity, alignment: .leading)
-                                    }
-                                    .padding(EdgeInsets(top: 15, leading: 24, bottom: 15, trailing: 24))
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                    .background(Color.bgSecond)
-                                    .clipShape(.rect(cornerRadius: 12))
-                                }
+                        HStack {
+                            TextCustom(text: "Activities", size: 20, weight: .semibold)
+                            Spacer()
+                            Button {
+                                viewModel.showAddActivitySheet = true
+                            } label: {
+                                Image(systemName: "plus")
+                                    .fontCustom(size: 22, weight: .medium, color: .specialPrimary)
+                                    .frame(width: 24, height: 24)
                             }
-                            .padding(.horizontal, 15)
                         }
-                        .clipShape(.rect(cornerRadius: 12))
+                        .padding(.horizontal, 15)
+                        if viewModel.activities.isEmpty {
+                            TextCustom(text: "There are no scheduled\nholidays for this day", size: 16, weight: .regular, color: .emptyActivities)
+                                .multilineTextAlignment(.center)
+                                .padding(.top, 50)
+                                .padding(.bottom, 38)
+                                .frame(maxHeight: .infinity, alignment: .center)
+                        } else {
+                                LazyVStack(spacing: 15) {
+                                    ForEach(viewModel.activities, id: \.self) { activity in
+                                        VStack(spacing: 10) {
+                                            TextCustom(text: activity.title, size: 17, weight: .semibold, color: .white)
+                                                .frame(maxWidth: .infinity, alignment: .leading)
+                                            VStack(alignment: .leading, spacing: 0) {
+                                                TextCustom(text: dateWithoutTime(date: activity.date), size: 12, weight: .regular, color: .white.opacity(0.35))
+                                                TextCustom(text: dateTime(date: activity.date), size: 12, weight: .regular, color: .white.opacity(0.35))
+                                            }.frame(maxWidth: .infinity, alignment: .leading)
+                                        }
+                                        .padding(EdgeInsets(top: 15, leading: 24, bottom: 15, trailing: 24))
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                        .background(Color.bgSecond)
+                                        .clipShape(.rect(cornerRadius: 12))
+                                    }
+                                }
+                                .padding(.horizontal, 15 + max(safeAreaInsets.trailing, safeAreaInsets.leading))
+                                .padding(.bottom, 8)
+                        }
                     }
-                }
                 .frame(maxHeight: .infinity, alignment: .top)
+            }
             Rectangle()
                 .fill(Color.white.opacity(0.15))
                 .frame(height: 0.4)
                 .frame(maxHeight: .infinity, alignment: .bottom)
         }
         .sheet(isPresented: $viewModel.showAddActivitySheet) {
-            AddActivityView(viewModel: viewModel.makeAddActivityViewModel()) {
+            AddActivityView(viewModel: viewModel.makeAddActivityViewModel(), isPortrait: $isPortrait) {
                 viewModel.showAddActivitySheet = false
             }
         }
+        .onReceive(NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)) { _ in
+                        guard let scene = UIApplication.shared.windows.first?.windowScene else { return }
+                        self.isPortrait = scene.interfaceOrientation.isPortrait
+                    }
     }
     
     private func dateTime(date: String) -> String {

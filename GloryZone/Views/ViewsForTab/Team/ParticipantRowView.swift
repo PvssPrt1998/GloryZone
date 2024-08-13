@@ -7,6 +7,8 @@ struct ParticipantRowView: View {
     let width: CGFloat
     let index: Int
     
+    @Binding var isPortrait: Bool
+    
     @State var showAlert = false
     
     @State var offset: CGFloat = 37
@@ -130,4 +132,9 @@ final class ParticipantRowViewModel: ObservableObject {
     func getParticipantBy(index: Int) -> Participant {
         dataManager.participants[index]
     }
+}
+
+extension UIScreen {
+    static let screenWidth = UIScreen.current?.bounds.size.width
+    static let screenHeight = UIScreen.current?.bounds.size.height
 }

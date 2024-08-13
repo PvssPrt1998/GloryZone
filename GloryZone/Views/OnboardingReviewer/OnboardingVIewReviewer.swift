@@ -8,6 +8,8 @@ struct OnboardingViewReviewer: View {
     @State private var selection = 0
     @State private var offset: CGFloat = 0
     
+    @State var isPortrait: Bool
+    
     private var backgroundsTitles = [
         ImageTitles.OnboardingBackgroundReviewer1.rawValue,
         ImageTitles.OnboardingBackgroundReviewer2.rawValue,
@@ -16,6 +18,7 @@ struct OnboardingViewReviewer: View {
     
     init() {
         UIScrollView.appearance().bounces = false
+        self.isPortrait = UIDevice.current.orientation.isPortrait
     }
     
     var body: some View {
@@ -55,13 +58,27 @@ struct OnboardingViewReviewer: View {
                             Spacer()
                             Spacer()
                             VStack(alignment: .leading, spacing: 10) {
-                                TextCustom(text: textFor(selection: selection).0,
-                                           size: 28,
-                                           weight: .bold)
-                                TextCustom(text: textFor(selection: selection).1,
-                                           size: 17,
-                                           weight: .regular,
-                                           color: .white.opacity(0.4))
+                                if isPortrait {
+                                    TextCustom(text: textFor(selection: selection).0,
+                                               size: 28,
+                                               weight: .bold)
+                                    TextCustom(text: textFor(selection: selection).1,
+                                               size: 17,
+                                               weight: .regular,
+                                               color: .white.opacity(0.4))
+                                }
+                                else {
+                                    TextCustom(text: textFor(selection: selection).0,
+                                               size: 28,
+                                               weight: .bold)
+                                    .shadow(color: .black, radius: 1)
+                                    TextCustom(text: textFor(selection: selection).1,
+                                               size: 17,
+                                               weight: .regular,
+                                               color: .white.opacity(0.4))
+                                    .shadow(color: .black, radius: 1)
+                                }
+                                
                             }
                             .frame(maxWidth: .infinity, alignment: .leading)
                             Spacer()
@@ -74,13 +91,25 @@ struct OnboardingViewReviewer: View {
                             NextButton(action: nextButtonPressed)
                         }
                         .padding(EdgeInsets(top: 0, leading: horizontalPadding(),
-                                            bottom: safeAreaInsets.bottom + 55,
+                                            bottom: safeAreaInsets.bottom + bottomPadding(),
                                             trailing: horizontalPadding()))
                         .frame(maxHeight: .infinity, alignment: .bottom)
                     }
                 )
             }
             .ignoresSafeArea()
+        }
+        .onReceive(NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)) { _ in
+                        guard let scene = UIApplication.shared.windows.first?.windowScene else { return }
+                        self.isPortrait = scene.interfaceOrientation.isPortrait
+                    }
+    }
+    
+    private func bottomPadding() -> CGFloat {
+        if isPortrait {
+            return 55
+        } else {
+            return 8
         }
     }
     
